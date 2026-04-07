@@ -1,19 +1,22 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:huda_signin_page/headerdesig.dart';
+import 'package:huda_signin_page/passwordvarification.dart';
 import 'infocard.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUpPage extends StatefulWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
-  final TextEditingController _userController = TextEditingController();
-  final TextEditingController _passController = TextEditingController();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _confController = TextEditingController();
+  final TextEditingController _userController = TextEditingController();
   bool _isAccepted = false;
   @override
   Widget build(BuildContext context) {
@@ -21,16 +24,13 @@ class _SignUpPageState extends State<SignUpPage> {
       title: "Sign up",
       leading: FaIcon(FontAwesomeIcons.arrowDownWideShort),
       children: [
-        InfoCard(label: "Username", controller: TextEditingController()),
+        InfoCard(label: "Username", controller: _userController),
         SizedBox(height: 10),
-        InfoCard(label: "Email", controller: TextEditingController()),
+        InfoCard(label: "Email", controller: _emailController),
         SizedBox(height: 10),
-        InfoCard(label: "Phone number", controller: TextEditingController()),
+        InfoCard(label: "Phone number", controller: _phoneController),
         SizedBox(height: 10),
-        PasswordCard(
-          label: "Confirm password",
-          controller: TextEditingController(),
-        ),
+        PasswordCard(label: "Confirm password", controller: _confController),
         SizedBox(height: 10),
         PasswordCard(label: "Password", controller: TextEditingController()),
         SizedBox(height: 15),
@@ -81,7 +81,15 @@ class _SignUpPageState extends State<SignUpPage> {
         SizedBox(height: 45),
 
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    Passwordvarification(phoneNumber: _phoneController.text),
+              ),
+            );
+          },
           child: Container(
             margin: EdgeInsets.all(15),
             padding: EdgeInsets.all(15),

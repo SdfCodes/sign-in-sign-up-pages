@@ -25,10 +25,10 @@ class _SignInPageState extends State<SignInPage> {
         InfoCard(
           label: "Username",
           // icon: Icons.person_2,
-          controller: TextEditingController(),
+          controller: _passController,
         ),
         SizedBox(height: 10),
-        PasswordCard(label: "Password", controller: TextEditingController()),
+        PasswordCard(label: "Password", controller: _userController),
         SizedBox(height: 30),
         GestureDetector(
           onTap: () {},
