@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:huda_signin_page/signin_page.dart';
 import 'dart:async';
+import 'package:google_fonts/google_fonts.dart';
 
-import 'firstImage.dart';
 
-
+import 'First_Images/FirstImage.dart';
 class Home extends StatefulWidget {
   @override
   _IntroScreenState createState() => _IntroScreenState();
@@ -43,10 +43,10 @@ class _IntroScreenState extends State<Home> {
       body: Center(
         child:Text(
           text,
-          style: TextStyle(
+          style: GoogleFonts.nunito(
             fontSize: 30,
             color: Colors.white,
-            fontFamily: text == "eduME" ? 'ArialRounded' : null,
+
             fontWeight: text == "eduME" ? FontWeight.bold : FontWeight.normal,
           ),
         ),

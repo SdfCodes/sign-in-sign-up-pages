@@ -3,10 +3,8 @@ import 'package:huda_signin_page/passwordvarification.dart';
 import 'package:huda_signin_page/signin_page.dart';
 import 'package:huda_signin_page/signup_page.dart';
 import 'package:huda_signin_page/welcome_page.dart';
-import 'package:huda_signin_page/SecondImage.dart';
 
-import 'firstImage.dart';
-import 'first_pages.dart';
+import 'First_Images/first_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +24,7 @@ class MyApp extends StatelessWidget {
           '/firstDot': (context) => OnboardingScreen(
             title: "Learn from the best",
             description: "Online classes taught by the world's best.",
-            imagePath: "assets/images/girl1.jpg",
+            imagePath: "assets/images/bird.jpg",
             currentIndex: 0,
           ),
 
@@ -39,8 +37,17 @@ class MyApp extends StatelessWidget {
 
           '/thirdDot': (context) => OnboardingScreen(
             title: "Explore a range of topics",
-            description: "Serfect homemade pasta, or write a novel... \nAll with access to 100+ classes.",
-            imagePath: "assets/images/bird.jpg",
+            description: "Perfect homemade pasta, or write a novel... \nAll with access to 100+ classes.",
+            imagePaths:  [
+              "assets/images/girl.jpg",
+              "assets/images/girl.jpg",
+              "assets/images/girl.jpg",
+              "assets/images/girl.jpg",
+              "assets/images/girl.jpg",
+              "assets/images/girl.jpg",
+              "assets/images/girl.jpg",
+              "assets/images/girl.jpg",
+            ],
             currentIndex: 2,
           ),
           '/SignIn':(context)=>SignInPage(),

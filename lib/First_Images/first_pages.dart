@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 class OnboardingScreen extends StatelessWidget {
   final String title;
   final String description;
-  final String imagePath;
+  final String? imagePath;
+  final List<String>? imagePaths;
   final int currentIndex;
 
   const OnboardingScreen({
     super.key,
     required this.title,
     required this.description,
-    required this.imagePath,
+     this.imagePath,
+   this.imagePaths,
     required this.currentIndex,
   });
 
@@ -40,16 +42,31 @@ class OnboardingScreen extends StatelessWidget {
               flex: 5,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-                child: ClipRRect(
+                child: imagePaths != null
+                    ? GridView.count(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: imagePaths!.map((path) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        path,
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  }).toList(),
+                )
+                    : ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
-                    imagePath,
+                    imagePath ?? "", // safe fallback
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
-
             const SizedBox(height: 10),
 
             Padding(
